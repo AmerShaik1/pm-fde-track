@@ -3,6 +3,18 @@
 
 [![Discipline](https://img.shields.io/badge/discipline-Product%20%2F%20AI%20PM-3E63DD)]() [![Stage](https://img.shields.io/badge/stage-Discovery%20→%20Design-16A34A)]()
 
+**🔗 View this repository:** https://github.com/AmerShaik1/pm-fde-track/tree/main/projects/ticket-triage-case-study
+
+| Artifact | Direct Link |
+|---|---|
+| Interactive Dashboard | https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ticket-triage-dashboard.html |
+| A/B Test Experiment | https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ab-test-confidence-score-experiment.html |
+| Competitive Landscape | https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ticket-triage-competitive-landscape.html |
+| Exec Review Simulation | https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/exec-review-simulation.html |
+| UX Wireframe | https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/draft-review-ux-wireframe.html |
+| PRD (Markdown) | https://github.com/AmerShaik1/pm-fde-track/blob/main/projects/ticket-triage-case-study/artifacts/ticket-triage-prd-case-study.md |
+| Prioritization & Roadmap (Markdown) | https://github.com/AmerShaik1/pm-fde-track/blob/main/projects/ticket-triage-case-study/artifacts/ticket-triage-prioritization-roadmap-addendum.md |
+
 ---
 
 ## TL;DR
@@ -46,31 +58,31 @@ Applied **Cost of Delay** over a generic scoring model, because the case carries
 
 Post-launch, an aggregate accept-rate of 45% (against a 60% target) was decomposed by segment and by ticket sub-type before any explanation was accepted — surfacing a likely confound between segment identity and ticket-type mix, rather than a simple "one segment doesn't trust AI" story. A sharp week-4 retention cliff (vs. gradual decline) was read as evidence of a specific trigger, not diffuse dissatisfaction.
 
-**Interactive dashboard:** [`artifacts/ticket-triage-dashboard.html`](artifacts/ticket-triage-dashboard.html)
+**Interactive dashboard:** [`ticket-triage-dashboard.html`](https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ticket-triage-dashboard.html)
 
 ## Experimentation
 
 Ran a confidence-score A/B test on the underperforming segment (hypothesis: uncertainty about draft quality, not draft quality itself, was suppressing trust) — result: +13pt lift, statistically significant, guardrail metric held flat. A second, non-experimental controlled comparison was used to isolate a data confound directly, rather than defaulting to "run another A/B test" when a cleaner analysis of existing data was the faster, correct tool.
 
-**Full experiment record:** [`artifacts/ab-test-confidence-score-experiment.html`](artifacts/ab-test-confidence-score-experiment.html)
+**Full experiment record:** [`ab-test-confidence-score-experiment.html`](https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ab-test-confidence-score-experiment.html)
 
 ## Competitive Positioning
 
 Benchmarked directly against Gorgias and Zendesk using public 2026 pricing and performance data — both incumbents are structurally priced and built for Shopify-native or enterprise-scale operations, leaving the true solo-operator segment underserved. Positioning leans on **process, not features**: a narrower, honestly-scoped, flat-priced tool — a moat rooted in incumbents' own revenue-model incentives, not a technical gap they could trivially close.
 
-**Full landscape analysis:** [`artifacts/ticket-triage-competitive-landscape.html`](artifacts/ticket-triage-competitive-landscape.html)
+**Full landscape analysis:** [`ticket-triage-competitive-landscape.html`](https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/ticket-triage-competitive-landscape.html)
 
 ## Stakeholder Defense
 
 Simulated exec review under real-time pushback from a cost-focused CFO and a protective Head of Support — demonstrating recommendation-first framing, objection-anticipation backed by existing research, and the discipline to distinguish a factual challenge from a judgment-call challenge (holding a target's rationale rather than conceding to social pressure alone).
 
-**Full transcript:** [`artifacts/exec-review-simulation.html`](artifacts/exec-review-simulation.html)
+**Full transcript:** [`exec-review-simulation.html`](https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/exec-review-simulation.html)
 
 ## Interface Design
 
 Designed and annotated the merchant-facing draft-review interface against core usability heuristics (visibility of system status, user control and freedom, error prevention, recognition over recall), including a self-identified flaw in the reject-flow's status visibility and a proposed fix.
 
-**Interactive wireframe:** [`artifacts/draft-review-ux-wireframe.html`](artifacts/draft-review-ux-wireframe.html)
+**Interactive wireframe:** [`draft-review-ux-wireframe.html`](https://amershaik1.github.io/pm-fde-track/projects/ticket-triage-case-study/artifacts/draft-review-ux-wireframe.html)
 
 ---
 
