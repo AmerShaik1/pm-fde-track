@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exec Review Simulation — Ticket Triage MVP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+  :root{
+    --bg:#F5F6F8; --card:#FFFFFF; --border:#E5E7EB; --text:#14171C; --text-dim:#6B7280;
+    --accent:#3E63DD; --accent-soft:#EAEEFC; --good:#16A34A; --good-soft:#EAF7EE;
+    --bad:#DC2626; --bad-soft:#FDEBEB; --amber:#D97706; --amber-soft:#FDF3E3;
+    --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Inter',sans-serif; --display:'Space Grotesk','Inter',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:900px; margin:0 auto; padding:34px 28px 70px; }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); }
+  h1{ font-family:var(--display); font-size:25px; font-weight:600; letter-spacing:-0.01em; margin:8px 0 6px; }
+  .lede{ color:var(--text-dim); font-size:14px; max-width:620px; line-height:1.6; }
+
+  .scene{ background:#14171C; color:#C6CBD3; border-radius:12px; padding:16px 20px; margin-top:20px; font-size:12.5px; line-height:1.7; }
+  .scene b{ color:#fff; }
+
+  .exchange{ margin-top:26px; }
+  .exec-q{ display:flex; gap:12px; align-items:flex-start; }
+  .avatar{ width:34px; height:34px; border-radius:50%; background:#DDE2EA; color:#4B5563; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; flex-shrink:0; font-family:var(--display); }
+  .avatar-exec{ background:#3A3F47; color:#fff; }
+  .q-bubble{ background:var(--card); border:1px solid var(--border); border-radius:12px; border-top-left-radius:3px; padding:12px 16px; font-size:14px; line-height:1.55; max-width:560px; }
+  .q-role{ font-size:11px; font-weight:700; color:var(--text-dim); margin-bottom:3px; text-transform:uppercase; letter-spacing:0.04em; }
+
+  .responses{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; margin-left:46px; }
+  .resp-card{ border-radius:10px; padding:14px 16px; font-size:13px; line-height:1.55; }
+  .resp-weak{ background:var(--bad-soft); border:1px solid #F3C6C6; }
+  .resp-strong{ background:var(--good-soft); border:1px solid #B9E6C3; }
+  .resp-tag{ font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:7px; }
+  .resp-weak .resp-tag{ color:var(--bad); }
+  .resp-strong .resp-tag{ color:var(--good); }
+
+  .technique{ margin-left:46px; margin-top:10px; background:var(--accent-soft); border-radius:8px; padding:10px 14px; font-size:12px; color:#2A46A8; line-height:1.5; }
+  .technique b{ font-weight:700; }
+
+  @media(max-width:700px){
+    .responses{ grid-template-columns:1fr; margin-left:0; }
+    .technique{ margin-left:0; }
+    .q-bubble{ max-width:100%; }
+  }
+
+  .checklist{ margin-top:40px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; }
+  .checklist h2{ font-family:var(--display); font-size:16px; margin:0 0 14px; }
+  .check-item{ display:flex; gap:10px; align-items:flex-start; margin-bottom:12px; font-size:13.5px; line-height:1.55; }
+  .check-mark{ width:20px; height:20px; border-radius:5px; background:var(--good-soft); color:var(--good); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; flex-shrink:0; margin-top:1px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Stakeholder Management &amp; Communication</div>
+  <h1>Exec Review — Ticket Triage MVP</h1>
+  <div class="lede">Same case, new format: defending the plan live, under real-time pushback, instead of writing for a patient reader.</div>
+
+  <div class="scene"><b>Scene:</b> You're presenting the MVP scope and roadmap to your Head of Support (skeptical of AI, protective of her team) and your CFO (cost-focused, has seen the competitor pricing research). You have 10 minutes and they interrupt.</div>
+
+  <!-- EXCHANGE 1 -->
+  <div class="exchange">
+    <div class="exec-q">
+      <div class="avatar avatar-exec">HoS</div>
+      <div class="q-bubble">
+        <div class="q-role">Head of Support</div>
+        Why are we only handling order-status tickets? My team wants this to handle refunds too — that's where they actually lose time.
+      </div>
+    </div>
+    <div class="responses">
+      <div class="resp-card resp-weak">
+        <span class="resp-tag">Weak Response</span>
+        "Well, refunds are more complex technically, and there's variability in the data, and we wanted to start small, and eventually we could look at expanding into that area if the AI does well enough on the simpler stuff first..."
+      </div>
+      <div class="resp-card resp-strong">
+        <span class="resp-tag">Strong Response</span>
+        "Deliberately excluded refunds from v1 — they involve money and judgment calls, and getting one wrong is expensive in trust. We're testing AI trust on the safe category first. Once that's proven, refunds become the very next thing we scope — with your team's input on what 'safe to automate' looks like."
+      </div>
+    </div>
+    <div class="technique"><b>Technique: Lead with the recommendation, not the journey.</b> The weak version rambles through reasoning before landing anywhere — it sounds unsure even though the underlying logic is fine. The strong version states the decision first, gives the one-sentence reason, and turns the objection into a forward commitment.</div>
+  </div>
+
+  <!-- EXCHANGE 2 -->
+  <div class="exchange">
+    <div class="exec-q">
+      <div class="avatar avatar-exec">CFO</div>
+      <div class="q-bubble">
+        <div class="q-role">CFO</div>
+        Gorgias and Zendesk already do this. Why are we building our own instead of just buying one of theirs?
+      </div>
+    </div>
+    <div class="responses">
+      <div class="resp-card resp-weak">
+        <span class="resp-tag">Weak Response</span>
+        "I mean, ours would probably be cheaper and more tailored to us specifically, and we'd have more control over it long-term..."
+      </div>
+      <div class="resp-card resp-strong">
+        <span class="resp-tag">Strong Response</span>
+        "Good question — I looked into both before scoping this. Zendesk's real-world autonomous resolution runs closer to 10-20% despite marketing 50-80%, and both platforms price per-resolution in ways that penalize unpredictable volume, which is exactly our situation. We're not trying to out-build their platform — we're targeting the narrow segment they're structurally not built to serve well."
+      </div>
+    </div>
+    <div class="technique"><b>Technique: Anticipate the objection before they raise it — and here, answer with evidence, not preference.</b> The weak response is a vague opinion. The strong response cites the actual competitive research already done, turning a "why not buy" challenge into proof that build-vs-buy was seriously considered, not skipped.</div>
+  </div>
+
+  <!-- EXCHANGE 3 -->
+  <div class="exchange">
+    <div class="exec-q">
+      <div class="avatar avatar-exec">HoS</div>
+      <div class="q-bubble">
+        <div class="q-role">Head of Support</div>
+        Your accept-rate target is 60%. That seems low — shouldn't we expect higher if this is going to be worth the investment?
+      </div>
+    </div>
+    <div class="responses">
+      <div class="resp-card resp-weak">
+        <span class="resp-tag">Weak Response</span>
+        "You're right, maybe we should aim higher — let's say 75%, that sounds more impressive."
+      </div>
+      <div class="resp-card resp-strong">
+        <span class="resp-tag">Strong Response</span>
+        "That's a fair challenge on the number itself — let's look at where it came from. 60% was set relative to what merchants already trust via canned responses and copy-paste habits, not picked arbitrarily. If you have reason to think merchants would demand more before trusting it, that's useful — but I'd want evidence for a different number, not just a rounder one."
+      </div>
+    </div>
+    <div class="technique"><b>Technique: Separate disagreement on facts from disagreement on judgment — and don't concede just because you're pushed.</b> The weak response caves instantly to social pressure and picks a number with zero backing. The strong response treats the target as evidence-based, invites real counter-evidence, but doesn't hand over the decision just because someone pushed once.</div>
+  </div>
+
+  <!-- EXCHANGE 4 -->
+  <div class="exchange">
+    <div class="exec-q">
+      <div class="avatar avatar-exec">CFO</div>
+      <div class="q-bubble">
+        <div class="q-role">CFO</div>
+        Your interview data is just two forum posts and some simulated conversations. How much should we actually trust this?
+      </div>
+    </div>
+    <div class="responses">
+      <div class="resp-card resp-weak">
+        <span class="resp-tag">Weak Response</span>
+        "It's pretty solid, I think the patterns are realistic and it should hold up fine once we launch."
+      </div>
+      <div class="resp-card resp-strong">
+        <span class="resp-tag">Strong Response</span>
+        "Fair to flag — this is honestly labeled hypothesis-complete, interview-unvalidated. The reasoning is sound and internally consistent, but it hasn't been tested against real merchants yet. That's exactly why the MVP is scoped as a test, not a full build — we're spending the least possible engineering time to get real validation before committing further."
+      </div>
+    </div>
+    <div class="technique"><b>Technique: Know when to hold firm vs. concede — and here, the honest move is neither. It's naming the real limitation directly instead of overselling confidence you don't have.</b> The weak response oversells certainty that isn't earned. The strong response is credible precisely because it doesn't pretend the evidence is stronger than it is — and it uses the limitation to justify the MVP approach itself.</div>
+  </div>
+
+  <div class="checklist">
+    <h2>What Made the Strong Responses Work</h2>
+    <div class="check-item"><span class="check-mark">✓</span> Every strong answer led with the decision or the answer first, reasoning second.</div>
+    <div class="check-item"><span class="check-mark">✓</span> Objections were answered with evidence already gathered (competitor research, interview data, scoping logic) — not fresh justification invented on the spot.</div>
+    <div class="check-item"><span class="check-mark">✓</span> Pushback on a judgment call (the 60% target) was met with "show me evidence for a different number," not immediate agreement.</div>
+    <div class="check-item"><span class="check-mark">✓</span> A real limitation (unvalidated interviews) was stated honestly rather than talked around — and used to justify the plan, not hidden from it.</div>
+  </div>
+
+</div>
+</body>
+</html>

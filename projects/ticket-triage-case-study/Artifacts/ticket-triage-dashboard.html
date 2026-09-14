@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Triage — Analytics Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --sidebar: #14171C;
+    --sidebar-text: #9AA1AC;
+    --bg: #F5F6F8;
+    --card: #FFFFFF;
+    --border: #E5E7EB;
+    --text: #14171C;
+    --text-dim: #6B7280;
+    --accent: #3E63DD;
+    --accent-soft: #EAEEFC;
+    --good: #16A34A;
+    --good-soft: #EAF7EE;
+    --bad: #DC2626;
+    --bad-soft: #FDEBEB;
+    --amber: #D97706;
+    --amber-soft: #FDF3E3;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --display: 'Space Grotesk', 'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    background:var(--bg);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  .app{ display:flex; min-height:100vh; }
+
+  /* SIDEBAR */
+  .sidebar{
+    width:220px; flex-shrink:0; background:var(--sidebar); color:var(--sidebar-text);
+    padding:24px 18px; display:flex; flex-direction:column; gap:28px;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand-mark{
+    width:30px;height:30px;border-radius:8px;background:var(--accent);
+    display:flex;align-items:center;justify-content:center;color:white;font-family:var(--display);font-weight:700;font-size:14px;
+  }
+  .brand-name{ font-family:var(--display); font-weight:600; color:#fff; font-size:15px; letter-spacing:-0.01em; }
+  .nav{ display:flex; flex-direction:column; gap:2px; }
+  .nav-item{
+    padding:9px 10px; border-radius:7px; font-size:13.5px; font-weight:500; color:var(--sidebar-text);
+    display:flex; align-items:center; gap:9px; cursor:default;
+  }
+  .nav-item.active{ background:rgba(62,99,221,0.18); color:#fff; }
+  .nav-dot{ width:6px; height:6px; border-radius:50%; background:currentColor; opacity:0.6; }
+  .sidebar-foot{ margin-top:auto; font-size:11.5px; color:#565D68; line-height:1.5; }
+
+  /* MAIN */
+  .main{ flex:1; padding:28px 36px 60px; max-width:1180px; }
+  .topbar{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:6px; flex-wrap:wrap; gap:10px;}
+  .page-title{ font-family:var(--display); font-size:22px; font-weight:600; letter-spacing:-0.01em; }
+  .page-sub{ color:var(--text-dim); font-size:13.5px; margin-top:4px; }
+  .range-pill{
+    font-size:12.5px; font-weight:600; color:var(--accent); background:var(--accent-soft);
+    padding:6px 12px; border-radius:20px; white-space:nowrap;
+  }
+
+  .section-label{
+    font-family:var(--display); font-size:13px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--text-dim); margin:34px 0 12px;
+  }
+
+  /* KPI CARDS */
+  .kpi-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .kpi-card{
+    background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px 18px;
+  }
+  .kpi-top{ display:flex; justify-content:space-between; align-items:flex-start; }
+  .kpi-label{ font-size:12.5px; color:var(--text-dim); font-weight:500; }
+  .kpi-value{ font-family:var(--mono); font-size:28px; font-weight:600; margin-top:8px; letter-spacing:-0.02em; }
+  .kpi-delta{ font-size:12px; font-weight:600; margin-top:6px; display:inline-flex; align-items:center; gap:4px; padding:2px 7px; border-radius:5px; }
+  .delta-down{ color:var(--bad); background:var(--bad-soft); }
+  .delta-up{ color:var(--good); background:var(--good-soft); }
+  .kpi-note{ font-size:11.5px; color:var(--text-dim); margin-top:9px; line-height:1.5; border-top:1px dashed var(--border); padding-top:8px; }
+  .term{ color:var(--accent); font-weight:600; }
+
+  /* CHART CARDS */
+  .row{ display:grid; grid-template-columns: 1.3fr 1fr; gap:16px; margin-top:0px; }
+  .card{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; }
+  .card-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+  .card-title{ font-family:var(--display); font-weight:600; font-size:15px; }
+  .card-hint{ font-size:12px; color:var(--text-dim); margin-top:3px; max-width:420px; line-height:1.5; }
+  .badge{ font-size:11px; font-weight:600; padding:3px 8px; border-radius:5px; white-space:nowrap; }
+  .badge-north{ background:var(--accent-soft); color:var(--accent); }
+  .badge-guard{ background:var(--amber-soft); color:var(--amber); }
+
+  /* FUNNEL */
+  .funnel{ display:flex; flex-direction:column; gap:0; margin-top:6px;}
+  .funnel-step{ display:flex; align-items:center; gap:14px; padding:9px 0; }
+  .funnel-bar-wrap{ flex:1; }
+  .funnel-bar-label{ display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:5px; }
+  .funnel-bar-name{ font-weight:600; }
+  .funnel-bar-pct{ font-family:var(--mono); font-weight:600; }
+  .funnel-bar-bg{ height:10px; background:#EEF0F3; border-radius:5px; overflow:hidden; }
+  .funnel-bar-fill{ height:100%; background:linear-gradient(90deg, var(--accent), #6E8EF0); border-radius:5px; }
+  .funnel-drop{ font-size:11px; color:var(--bad); font-family:var(--mono); text-align:right; margin-top:4px; }
+
+  /* GLOSSARY */
+  .glossary{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  details.gloss-item{
+    border:1px solid var(--border); border-radius:9px; padding:10px 13px; background:#FBFBFC;
+  }
+  details.gloss-item summary{
+    cursor:pointer; font-weight:600; font-size:13px; list-style:none; display:flex; justify-content:space-between; align-items:center;
+  }
+  details.gloss-item summary::-webkit-details-marker{ display:none; }
+  details.gloss-item summary::after{ content:'+'; color:var(--accent); font-weight:700; font-size:15px; }
+  details.gloss-item[open] summary::after{ content:'–'; }
+  .gloss-def{ font-size:12.5px; color:var(--text-dim); margin-top:8px; line-height:1.55; }
+
+  canvas{ max-height:230px; }
+
+  @media(max-width:900px){
+    .app{ flex-direction:column; }
+    .sidebar{ width:100%; flex-direction:row; align-items:center; padding:14px 18px; }
+    .nav, .sidebar-foot{ display:none; }
+    .kpi-grid{ grid-template-columns:repeat(2,1fr); }
+    .row{ grid-template-columns:1fr; }
+    .glossary{ grid-template-columns:1fr; }
+    .main{ padding:20px 18px 50px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">TT</div>
+      <div class="brand-name">Ticket Triage</div>
+    </div>
+    <div class="nav">
+      <div class="nav-item active"><span class="nav-dot"></span> Overview</div>
+      <div class="nav-item"><span class="nav-dot"></span> Funnels</div>
+      <div class="nav-item"><span class="nav-dot"></span> Retention</div>
+      <div class="nav-item"><span class="nav-dot"></span> Segments</div>
+      <div class="nav-item"><span class="nav-dot"></span> Glossary</div>
+    </div>
+    <div class="sidebar-foot">Mock dashboard for training purposes — data illustrative, not real production data.</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="page-title">Product Overview</div>
+        <div class="page-sub">AI-Drafted Reply Tool · Order-Status &amp; Shipping Category · Post-Launch, Week 4</div>
+      </div>
+      <div class="range-pill">Last 28 days</div>
+    </div>
+
+    <!-- KPI ROW -->
+    <div class="section-label">Top-Line Metrics</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-label">Accept-Without-Edit Rate</div>
+        </div>
+        <div class="kpi-value">45%</div>
+        <div class="kpi-delta delta-down">▼ 15 pts vs. 60% target</div>
+        <div class="kpi-note">Your <span class="term">Primary Success Metric</span> — the % of AI drafts sent exactly as generated, no merchant edits. Directly tests the riskiest assumption: do merchants trust the draft enough to use it as-is.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-label">Weekly Drafts Approved</div>
+        </div>
+        <div class="kpi-value">1,284</div>
+        <div class="kpi-delta delta-up">▲ 22% WoW</div>
+        <div class="kpi-note">A candidate <span class="term">North Star Metric</span> — one number the whole team rallies around, chosen because it reflects real usage (tickets actually resolved), not vanity activity like "drafts generated."</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-label">Ticket Reopen Rate</div>
+        </div>
+        <div class="kpi-value">6.1%</div>
+        <div class="kpi-delta delta-up" style="color:var(--good);background:var(--good-soft);">▲ flat vs. baseline</div>
+        <div class="kpi-note">Your <span class="term">Guardrail Metric</span> — doesn't measure success directly, but catches hidden harm (e.g. AI quietly sending wrong replies) that the primary metric alone would miss.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-top">
+          <div class="kpi-label">W4 Retention</div>
+        </div>
+        <div class="kpi-value">25%</div>
+        <div class="kpi-delta delta-down">▼ sharp drop from W2 (80%)</div>
+        <div class="kpi-note">% of merchants who <span class="term">Activated</span> (sent first approved draft) still actively using the tool 4 weeks later. A cliff, not a gradual decline — worth investigating why.</div>
+      </div>
+    </div>
+
+    <!-- FUNNEL + GLOSSARY ROW -->
+    <div class="row" style="margin-top:26px;">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Activation Funnel</div>
+            <div class="card-hint">Each step a new merchant moves through before reaching real value. The step with the sharpest drop tells you where the actual problem lives — not just that "adoption is low."</div>
+          </div>
+        </div>
+        <div class="funnel">
+          <div class="funnel-step">
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar-label"><span class="funnel-bar-name">Installed tool</span><span class="funnel-bar-pct">100%</span></div>
+              <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:100%;"></div></div>
+            </div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar-label"><span class="funnel-bar-name">Connected helpdesk</span><span class="funnel-bar-pct">82%</span></div>
+              <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:82%;"></div></div>
+              <div class="funnel-drop">▼ 18% drop-off — setup friction</div>
+            </div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar-label"><span class="funnel-bar-name">Saw first AI draft</span><span class="funnel-bar-pct">74%</span></div>
+              <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:74%;"></div></div>
+              <div class="funnel-drop">▼ 8% drop-off</div>
+            </div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar-label"><span class="funnel-bar-name">Approved/sent first draft <em style="color:var(--accent); font-style:normal; font-weight:600;">(Activation)</em></span><span class="funnel-bar-pct">61%</span></div>
+              <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:61%; background:linear-gradient(90deg, var(--accent), #6E8EF0);"></div></div>
+              <div class="funnel-drop">▼ 13% drop-off — trust moment</div>
+            </div>
+          </div>
+          <div class="funnel-step">
+            <div class="funnel-bar-wrap">
+              <div class="funnel-bar-label"><span class="funnel-bar-name">Still active at Week 4</span><span class="funnel-bar-pct">25%</span></div>
+              <div class="funnel-bar-bg"><div class="funnel-bar-fill" style="width:25%; background:linear-gradient(90deg,#D97706,#F0B559);"></div></div>
+              <div class="funnel-drop">▼ 36% drop-off — largest single loss</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Retention Curve</div>
+            <div class="card-hint">% of activated merchants still active each week. A curve that flattens ("smiles") signals a stable core; one that keeps falling signals ongoing leakage.</div>
+          </div>
+        </div>
+        <canvas id="retentionChart"></canvas>
+      </div>
+    </div>
+
+    <!-- SEGMENT CHARTS -->
+    <div class="section-label">Diagnosing the Primary Metric</div>
+    <div class="row">
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Accept Rate by Merchant Segment</div>
+            <div class="card-hint">Segmenting before theorizing: the 45% aggregate hides that Segment 1 is near target while Segment 2 is far below it.</div>
+          </div>
+        </div>
+        <canvas id="segmentChart"></canvas>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Accept Rate by Ticket Sub-Type</div>
+            <div class="card-hint">A second cut reveals a possible confound: "damaged/lost" tickets score low regardless of segment — may have been mis-scoped as low-variance.</div>
+          </div>
+        </div>
+        <canvas id="ticketTypeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- GLOSSARY -->
+    <div class="section-label">Dashboard Glossary — Terms You'll See at Any Product Org</div>
+    <div class="glossary">
+      <details class="gloss-item"><summary>Funnel</summary><div class="gloss-def">The sequence of steps a user moves through toward a valuable action, where each step loses some % of users. The step with the sharpest drop, not the overall conversion number, is usually where the real problem lives.</div></details>
+      <details class="gloss-item"><summary>Activation</summary><div class="gloss-def">The moment a user first experiences real value — not just signing up. Picking too early a definition (e.g. "installed") makes numbers look better than they mean.</div></details>
+      <details class="gloss-item"><summary>Engagement</summary><div class="gloss-def">Ongoing, repeated use after activation. A user can activate once and never return — engagement asks if they keep getting value regularly.</div></details>
+      <details class="gloss-item"><summary>Retention / Churn</summary><div class="gloss-def">Retention: % of a cohort still active over time, usually shown as a curve. Churn is its inverse — users who stop. The shape of the curve (flattening vs. ever-declining) matters more than any single point.</div></details>
+      <details class="gloss-item"><summary>Cohort</summary><div class="gloss-def">A group of users defined by when they started (e.g. "merchants who activated in week 1"), tracked together over time so you're comparing like-for-like, not mixing new and old users.</div></details>
+      <details class="gloss-item"><summary>North Star Metric</summary><div class="gloss-def">The single metric the whole team rallies around because it best reflects real customer value delivered — chosen carefully to avoid vanity metrics like raw usage counts.</div></details>
+      <details class="gloss-item"><summary>Guardrail Metric</summary><div class="gloss-def">A metric that doesn't measure success directly but catches hidden harm — e.g. reopen rate catching quietly-bad AI replies that a rising accept-rate would otherwise mask.</div></details>
+      <details class="gloss-item"><summary>WoW / MoM</summary><div class="gloss-def">Week-over-Week / Month-over-Month — the standard shorthand for comparing a metric to the prior equivalent period, used to spot trend direction, not just a snapshot.</div></details>
+      <details class="gloss-item"><summary>Segmentation (on a dashboard)</summary><div class="gloss-def">Breaking an aggregate number down by a dimension (segment, ticket type, cohort, time) before explaining it — the core diagnostic habit that prevents jumping to the wrong conclusion.</div></details>
+      <details class="gloss-item"><summary>Confound</summary><div class="gloss-def">When two segmentation cuts overlap so much that you can't tell which one is the real cause — e.g. if Segment 2 also happens to get more "damaged/lost" tickets, the segment-level and ticket-type-level findings may be the same root cause counted twice.</div></details>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const retentionCtx = document.getElementById('retentionChart');
+  new Chart(retentionCtx, {
+    type: 'line',
+    data: {
+      labels: ['W1','W2','W3','W4','W5','W6'],
+      datasets: [{
+        label: '% of activated cohort still active',
+        data: [100, 80, 55, 25, 22, 20],
+        borderColor: '#3E63DD',
+        backgroundColor: 'rgba(62,99,221,0.08)',
+        fill: true,
+        tension: 0.35,
+        pointBackgroundColor: '#3E63DD',
+        pointRadius: 4,
+        borderWidth: 2.5
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min:0, max:100, ticks:{ callback: v => v + '%' }, grid:{ color:'#EEF0F3' } },
+        x: { grid: { display:false } }
+      }
+    }
+  });
+
+  const segmentCtx = document.getElementById('segmentChart');
+  new Chart(segmentCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Segment 1 (Growing Store)', 'Segment 2 (Solo Operator)'],
+      datasets: [{
+        label: 'Accept-without-edit rate',
+        data: [68, 20],
+        backgroundColor: ['#3E63DD', '#D97706'],
+        borderRadius: 6,
+        maxBarThickness: 70
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min:0, max:100, ticks:{ callback: v => v + '%' }, grid:{ color:'#EEF0F3' } },
+        x: { grid: { display:false } }
+      }
+    }
+  });
+
+  const ticketTypeCtx = document.getElementById('ticketTypeChart');
+  new Chart(ticketTypeCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Standard Shipping-Status', 'Damaged / Lost'],
+      datasets: [{
+        label: 'Accept-without-edit rate',
+        data: [71, 22],
+        backgroundColor: ['#16A34A', '#DC2626'],
+        borderRadius: 6,
+        maxBarThickness: 70
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min:0, max:100, ticks:{ callback: v => v + '%' }, grid:{ color:'#EEF0F3' } },
+        x: { grid: { display:false } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment: Confidence Score — Segment 2 Trust</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+  :root{
+    --bg:#F5F6F8; --card:#FFFFFF; --border:#E5E7EB; --text:#14171C; --text-dim:#6B7280;
+    --accent:#3E63DD; --accent-soft:#EAEEFC; --good:#16A34A; --good-soft:#EAF7EE;
+    --bad:#DC2626; --bad-soft:#FDEBEB; --amber:#D97706; --amber-soft:#FDF3E3;
+    --mono:'IBM Plex Mono',ui-monospace,monospace; --sans:'Inter',sans-serif; --display:'Space Grotesk','Inter',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:980px; margin:0 auto; padding:34px 28px 60px; }
+  .eyebrow{ font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); }
+  h1{ font-family:var(--display); font-size:26px; font-weight:600; letter-spacing:-0.01em; margin:8px 0 6px; }
+  .lede{ color:var(--text-dim); font-size:14px; max-width:620px; line-height:1.6; }
+  .status-row{ display:flex; gap:10px; margin-top:16px; flex-wrap:wrap; }
+  .pill{ font-size:12px; font-weight:600; padding:5px 12px; border-radius:20px; }
+  .pill-live{ background:var(--good-soft); color:var(--good); }
+  .pill-conf{ background:var(--accent-soft); color:var(--accent); }
+
+  .card{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px 24px; margin-top:20px; }
+  .card-title{ font-family:var(--display); font-weight:600; font-size:15px; margin-bottom:4px; }
+  .card-sub{ font-size:12.5px; color:var(--text-dim); margin-bottom:16px; line-height:1.5; }
+
+  .hyp-box{ background:var(--accent-soft); border-radius:10px; padding:16px 18px; font-size:14px; line-height:1.7; }
+  .hyp-box b{ color:var(--accent); }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+  .field{ background:#FBFBFC; border:1px solid var(--border); border-radius:9px; padding:12px 14px; }
+  .field-label{ font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-dim); }
+  .field-val{ font-family:var(--mono); font-size:14.5px; font-weight:600; margin-top:5px; }
+  .field-note{ font-size:11.5px; color:var(--text-dim); margin-top:6px; line-height:1.5; }
+
+  .arm-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .arm{ border:1px solid var(--border); border-radius:10px; padding:16px 18px; }
+  .arm-control{ border-left:4px solid #9AA1AC; }
+  .arm-treatment{ border-left:4px solid var(--accent); }
+  .arm-name{ font-weight:700; font-size:13.5px; }
+  .arm-desc{ font-size:12.5px; color:var(--text-dim); margin-top:6px; line-height:1.6; }
+
+  .metrics-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .metric-card{ border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .metric-role{ font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; padding:2px 7px; border-radius:5px; display:inline-block; }
+  .role-primary{ background:var(--accent-soft); color:var(--accent); }
+  .role-guard{ background:var(--amber-soft); color:var(--amber); }
+  .role-diag{ background:#EFEFF2; color:#4B5563; }
+  .metric-name{ font-weight:600; font-size:13.5px; margin-top:8px; }
+  .metric-desc{ font-size:12px; color:var(--text-dim); margin-top:5px; line-height:1.5; }
+
+  canvas{ max-height:250px; }
+
+  .verdict{ display:flex; gap:14px; align-items:flex-start; background:#FBFBFC; border:1px solid var(--border); border-radius:10px; padding:16px 18px; margin-top:16px; }
+  .verdict-icon{ width:34px; height:34px; border-radius:8px; background:var(--good-soft); color:var(--good); display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; }
+  .verdict-text{ font-size:13.5px; line-height:1.6; }
+  .verdict-text b{ color:var(--text); }
+
+  .peek-warning{ background:var(--bad-soft); border-left:4px solid var(--bad); border-radius:8px; padding:12px 16px; font-size:12.5px; color:#7A1F1F; line-height:1.6; margin-top:14px; }
+
+  @media(max-width:760px){
+    .grid2, .arm-grid, .metrics-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Experiment Design &amp; Results</div>
+  <h1>Confidence Score → Segment 2 Trust</h1>
+  <div class="lede">Testing whether showing a confidence score next to each AI draft increases accept-without-edit rate specifically for Segment 2 (solo operators), the group currently underperforming at 20%.</div>
+  <div class="status-row">
+    <span class="pill pill-live">Concluded — Day 21</span>
+    <span class="pill pill-conf">95% Confidence Level</span>
+  </div>
+
+  <!-- HYPOTHESIS -->
+  <div class="card">
+    <div class="card-title">Hypothesis</div>
+    <div class="card-sub">Written and locked <em>before</em> launch — this is what protects you from rationalizing whatever result shows up later.</div>
+    <div class="hyp-box">
+      <b>If</b> we show a confidence score (e.g. "92% match") next to each AI-drafted reply,
+      <b>then</b> accept-without-edit rate for Segment 2 will increase,
+      <b>because</b> part of their low trust may come from uncertainty about draft quality — not draft quality itself.
+    </div>
+  </div>
+
+  <!-- SETUP -->
+  <div class="card">
+    <div class="card-title">Experiment Setup</div>
+    <div class="card-sub">The structural decisions that make a result trustworthy rather than noise.</div>
+    <div class="grid2">
+      <div class="field">
+        <div class="field-label">Population</div>
+        <div class="field-val">Segment 2 merchants only</div>
+        <div class="field-note">Isolated to the segment the hypothesis is actually about — testing on everyone would dilute any real effect.</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Split</div>
+        <div class="field-val">50 / 50, randomized</div>
+        <div class="field-note">Random assignment, not "early sign-ups get treatment" — avoids confounding the change with who's more engaged.</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Pre-committed sample size</div>
+        <div class="field-val">~340 merchants / arm</div>
+        <div class="field-note">Set upfront based on minimum detectable effect (8pt lift) — decided before seeing any data.</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Duration / stopping rule</div>
+        <div class="field-val">21 days, checked once</div>
+        <div class="field-note">Not checked daily and stopped early — early "wins" regularly regress once more data comes in.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARMS -->
+  <div class="card">
+    <div class="card-title">Control vs. Treatment</div>
+    <div class="arm-grid">
+      <div class="arm arm-control">
+        <div class="arm-name">Control (A)</div>
+        <div class="arm-desc">Current experience — AI draft shown with no confidence indicator, same as production today.</div>
+      </div>
+      <div class="arm arm-treatment">
+        <div class="arm-name">Treatment (B)</div>
+        <div class="arm-desc">Identical draft, plus a visible confidence score (e.g. "92% match to similar resolved tickets") shown above the draft text.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div class="card">
+    <div class="card-title">Metrics Tracked</div>
+    <div class="card-sub">A real test watches more than the one number you're hoping moves.</div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-role role-primary">Primary</span>
+        <div class="metric-name">Accept-without-edit rate</div>
+        <div class="metric-desc">The metric the hypothesis is actually about — did the confidence score change trust behavior?</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-role role-guard">Guardrail</span>
+        <div class="metric-name">Ticket reopen rate</div>
+        <div class="metric-desc">Checks the score isn't making merchants overconfident in genuinely bad drafts.</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-role role-diag">Diagnostic</span>
+        <div class="metric-name">Edit distance (edited, not rejected)</div>
+        <div class="metric-desc">If accept rate doesn't move much, tells you whether merchants are getting closer to trusting it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="card">
+    <div class="card-title">Results</div>
+    <div class="card-sub">Checked once, at the pre-committed sample size and duration — not mid-flight.</div>
+    <canvas id="resultsChart"></canvas>
+    <div class="verdict">
+      <div class="verdict-icon">✓</div>
+      <div class="verdict-text">
+        <b>Treatment lifted Segment 2 accept-without-edit rate from 20% → 33%</b> (+13pts, statistically significant at 95% confidence). Guardrail metric (reopen rate) stayed flat, meaning merchants aren't blindly trusting the score on bad drafts. Edit distance on remaining edited-not-rejected drafts also dropped, suggesting a genuine trust shift, not just a fluke on the primary metric. <b>Partial support for the hypothesis</b> — uncertainty about draft quality was a real factor, but the remaining gap to Segment 1's 68% suggests trust isn't fully explained by confidence-visibility alone; the ticket-type confound (damaged/lost tickets) from the earlier diagnosis likely still accounts for some of the residual gap.
+      </div>
+    </div>
+  </div>
+
+  <div class="peek-warning">
+    <b>What this test deliberately avoided:</b> the team did not check results daily. A day-3 read showed only a +4pt lift — tempting to call it "not working" and kill the test early. Waiting for the pre-committed sample size revealed the real, larger effect. This is the peeking problem in practice, not just in theory.
+  </div>
+
+</div>
+
+<script>
+  new Chart(document.getElementById('resultsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Control (A) — No Score', 'Treatment (B) — Confidence Score'],
+      datasets: [{
+        label: 'Accept-without-edit rate (Segment 2)',
+        data: [20, 33],
+        backgroundColor: ['#9AA1AC', '#3E63DD'],
+        borderRadius: 6,
+        maxBarThickness: 90
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display:false } },
+      scales: {
+        y: { min:0, max:80, ticks:{ callback: v => v + '%' }, grid:{ color:'#EEF0F3' } },
+        x: { grid: { display:false } }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
