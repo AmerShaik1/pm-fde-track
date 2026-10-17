@@ -1,0 +1,161 @@
+id,merchant_id,created_at,subject,body,status
+1,7,2026-08-01 11:25,Payout on hold,My payout has been on hold for 4 days and Shopify Payments will not tell me why. I have supplier invoices due this week and need this money urgently. Thank you!,open
+2,3,2026-08-01 13:50,Checkout page is blank,"Hey support, The checkout page loads blank for most visitors. I have tested on three browsers. This is urgent, we are running a sale.",resolved
+3,2,2026-08-02 00:53,Change login email,"Hey support, How do I change the email address I use to log in to my account? Appreciate any help.",resolved
+4,10,2026-08-02 18:10,Discount code changed shipping price,"Hello, When a customer uses a free shipping discount code the shipping line still charges them for the label rate in the confirmation email. Please advise.",resolved
+5,8,2026-08-03 02:20,Thinking about closing,I think I might want to close my store. What happens to my data? Not sure yet.,open
+6,10,2026-08-03 16:05,Packing slip template,"Hi, Is it possible to customize the packing slip with our logo?",resolved
+7,2,2026-08-03 23:03,Cannot get into my shop,I cannot get into my shop anymore. It keeps saying my details are wrong and the reset email never comes. Orders are piling up.,resolved
+8,1,2026-08-04 17:17,Suggestion: export reports,"Hi, I would like to export the sales report as a PDF. Is this on the roadmap? It would be great to have.",resolved
+9,12,2026-08-04 17:28,Staff cannot print shipping labels,"Hello, My staff member can log in but cannot print shipping labels. It says they do not have permission.",resolved
+10,1,2026-08-04 21:00,Shipping rates missing at checkout,"Hello, Customers in Canada see no shipping rates at checkout, so they cannot place orders. US customers are fine. Appreciate any help.",resolved
+11,10,2026-08-05 01:43,Chargeback fee question,"Hi, I received a chargeback on order #2518 and was charged a fee. How do I dispute this, and can the fee be refunded?",resolved
+12,12,2026-08-05 04:24,Refund shows up in my payout,"Hey support, A refund I issued on order #4532 shows up as a negative amount in my payout. Is that normal? Thanks.",resolved
+13,10,2026-08-05 06:43,Feature request: bulk shipping labels,"Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks. Regards,",resolved
+14,4,2026-08-05 07:41,Printing postage is not working,"Good morning, I try to print postage for today's orders and nothing happens. 25 orders need to go out by 4pm. Please advise.",open
+15,3,2026-08-05 08:51,App recommendation,"Hi, Is there an app for product reviews that works with my theme? Any suggestions?",resolved
+16,6,2026-08-05 10:50,People leave at the last step,"Hey support, Customers tell me they get to the last step of buying and the page just spins forever. Orders have dropped to almost nothing today. Thanks.",resolved
+17,2,2026-08-05 11:18,Account suspended,"My account was suspended this morning with no explanation and my store is offline. I need access restored immediately. Regards,",resolved
+18,5,2026-08-05 11:25,Feature request: bulk edit,"Hi team, It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one.",resolved
+19,8,2026-08-05 14:25,Customer disputed a charge,"Hi, A customer called their credit card company and disputed one of my orders. Now there is a hold on the funds. What do I do? Appreciate any help.",resolved
+20,6,2026-08-05 16:25,Discount code not applying,"Good morning, The discount code SPRING25 is not applying at checkout even though it is active and the customer meets the minimum. Appreciate any help.",resolved
+21,6,2026-08-05 18:17,Refund shows up in my payout,"Hi team, A refund I issued on order #4615 shows up as a negative amount in my payout. Is that normal? Thank you!",resolved
+22,3,2026-08-06 00:14,Change login email,"Hi, How do I change the email address I use to log in to my account? Regards,",resolved
+23,5,2026-08-06 02:28,Site looks weird after add-on,"Hello, Ever since I added that new add-on from the store, my homepage looks all messed up and slow. Appreciate any help.",resolved
+24,2,2026-08-07 07:37,Suggestion: export reports,"Hi, I would like to export the sales report as a PDF. Is this on the roadmap? It would be great to have.",resolved
+25,10,2026-08-07 13:28,Customer disputed a charge,"Hello, A customer called their credit card company and disputed one of my orders. Now there is a hold on the funds. What do I do? Appreciate any help.",resolved
+26,6,2026-08-07 14:16,Discount code changed shipping price,"Hello, When a customer uses a free shipping discount code the shipping line still charges them for the label rate in the confirmation email. Thank you!",open
+27,7,2026-08-07 16:51,Locked out after bank verification,I got locked out of my account after I tried to verify my bank account for payouts. Now I cannot see anything in my admin. Thank you!,resolved
+28,1,2026-08-08 02:22,Customers cannot complete checkout,"Good morning, Since this morning customers get an error on the payment step and cannot complete checkout. We are losing orders right now. Checkout is broken. Appreciate any help.",resolved
+29,8,2026-08-08 07:57,Customer cannot log in at checkout,A customer says they cannot log in to their customer account at checkout and it loops back to the cart. Guest checkout is not available. Please advise.,open
+30,2,2026-08-08 16:29,App not syncing inventory,"Hi, The LabelMaster app stopped syncing inventory with my store 4 days ago and stock levels are now wrong.",resolved
+31,6,2026-08-09 00:13,Checkout broke after theme update,Checkout stopped working right after I published the new theme. Customers see an error on the payment step and we are losing sales. Appreciate any help.,resolved
+32,5,2026-08-09 02:04,Help,"Hello, Hi, something is wrong with my store, please help. Thanks.",resolved
+33,4,2026-08-09 05:19,Money still has not shown up,"Hi, Hi, the money from last week's sales still has not shown up in my account and my supplier is chasing me. It has been over a week.",resolved
+34,6,2026-08-09 13:16,Transfer store ownership,"Good morning, I need to transfer ownership of my store to my business partner. What are the steps for a store ownership transfer?",resolved
+35,9,2026-08-09 20:05,Design is not updating,I changed the colors and fonts on my design three times but visitors still see the old look. Appreciate any help.,resolved
+36,12,2026-08-09 23:43,Marketing offer,"Hi, We offer cheap marketing services for your online store. Reply for a quote.",resolved
+37,8,2026-08-10 07:24,Coupon will not work,"Good morning, My customers keep telling me the coupon I emailed out does not work when they try to pay. The same code worked last month. Appreciate any help.",resolved
+38,4,2026-08-10 16:34,Employee needs access,"Hello, My new employee needs to see orders but not the money side of things. How can I set that up? Thank you!",open
+39,11,2026-08-10 18:17,Locked out after bank verification,"Hello, I got locked out of my account after I tried to verify my bank account for payouts. Now I cannot see anything in my admin. Thank you!",resolved
+40,11,2026-08-11 07:26,Checkout button typo,"Hey support, There is a small typo on the checkout button text, it says 'Complate order'. Not urgent.",resolved
+41,8,2026-08-11 17:53,Suggestion: export reports,I would like to export the sales report as a PDF. Is this on the roadmap? It would be great to have. Please advise.,resolved
+42,9,2026-08-12 01:15,Question,"Hi, Hello, is anyone there? I have a question. Regards,",resolved
+43,4,2026-08-12 09:07,Payout amount does not match sales,"Hello, My payout this week is $780 lower than what the sales report shows. Can you explain the difference? Regards,",resolved
+44,5,2026-08-14 12:04,Site looks weird after add-on,"Hello, Ever since I added that new add-on from the store, my homepage looks all messed up and slow.",resolved
+45,7,2026-08-15 02:48,Checkout page is blank,"Hey support, The checkout page loads blank for most visitors. I have tested on three browsers. This is urgent, we are running a sale. Appreciate any help.",resolved
+46,12,2026-08-15 06:12,Thinking about closing,"Hey support, I think I might want to close my store. What happens to my data? Not sure yet. Please advise.",resolved
+47,11,2026-08-15 08:21,Design is not updating,"Hey support, I changed the colors and fonts on my design three times but visitors still see the old look. Appreciate any help.",open
+48,12,2026-08-15 09:33,Shipping rates missing at checkout,"Hey support, Customers in Canada see no shipping rates at checkout, so they cannot place orders. US customers are fine. Appreciate any help.",resolved
+49,3,2026-08-15 10:28,Why is my balance lower?,"Hi team, The balance I see on my dashboard is a lot lower than I expected after this week. Where did the rest go? Thank you!",resolved
+50,4,2026-08-15 20:05,Help,"Hey support, Hi, something is wrong with my store, please help.",resolved
+51,5,2026-08-15 20:54,Payout failed to reach bank,"Hey support, The payout of $5120 was marked as failed and never arrived in my bank account. I updated my bank details last week. Please advise urgently. Appreciate any help.",resolved
+52,2,2026-08-15 22:12,Thanks!,"Hi, Thank you for fixing my issue yesterday, everything works now.",resolved
+53,6,2026-08-16 02:58,Customers cannot complete checkout,Since this morning customers get an error on the payment step and cannot complete checkout. We are losing orders right now. Checkout is broken.,resolved
+54,5,2026-08-16 07:41,Question,"Hello, Hello, is anyone there? I have a question. Thank you!",resolved
+55,8,2026-08-16 20:29,Packing slip template,Is it possible to customize the packing slip with our logo? Appreciate any help.,resolved
+56,3,2026-08-17 10:46,Password reset question,"Hey support, I want to update my password to something stronger. Where do I do that in account settings? Thanks.",resolved
+57,3,2026-08-17 19:03,Printing postage is not working,"Good morning, I try to print postage for today's orders and nothing happens. 20 orders need to go out by 4pm. Appreciate any help.",resolved
+58,4,2026-08-19 11:58,Tracking app shows no tracking numbers,"Good morning, The StockSync Pro app does not show tracking numbers for my orders anymore, even for old orders.",resolved
+59,12,2026-08-19 22:45,Theme slow after update,"Hey support, My storefront got noticeably slower after the latest theme update. Page load time doubled. Please advise.",resolved
+60,11,2026-08-20 00:42,Transfer store ownership,I need to transfer ownership of my store to my business partner. What are the steps for a store ownership transfer?,resolved
+61,5,2026-08-20 04:48,Feature request: bulk shipping labels,Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks. Appreciate any help.,resolved
+62,5,2026-08-22 06:42,Tracking app shows no tracking numbers,"The LabelMaster app does not show tracking numbers for my orders anymore, even for old orders. Regards,",resolved
+63,11,2026-08-22 14:47,Marketing offer,"Hey support, We offer cheap marketing services for your online store. Reply for a quote. Thanks.",resolved
+64,7,2026-08-22 18:30,Feature request: wishlist,"Hey support, Please consider adding a built-in wishlist feature for storefronts. Our customers keep asking for it. Regards,",resolved
+65,6,2026-08-22 19:03,Store broken after installing app,"Hey support, After installing the ReviewBoost app my storefront is completely broken and shows a blank page. I uninstalled it but the theme is still damaged. Please help urgently. Thanks.",resolved
+66,8,2026-08-23 14:56,Checkout broke after theme update,"Good morning, Checkout stopped working right after I published the new theme. Customers see an error on the payment step and we are losing sales. Regards,",resolved
+67,8,2026-08-24 04:34,Store broken after installing app,"Good morning, After installing the ReviewBoost app my storefront is completely broken and shows a blank page. I uninstalled it but the theme is still damaged. Please help urgently. Thanks.",resolved
+68,2,2026-08-25 16:18,Payout schedule question,"Hey support, How often do payouts happen, and can I change the payout schedule to weekly? Please advise.",resolved
+69,9,2026-08-26 03:20,It is happening again,"Good morning, It is not working again. Same problem as before. Please advise.",resolved
+70,3,2026-08-27 18:30,Theme changes not saving,"Hi team, When I edit my theme in the customizer and click save, the changes disappear after I refresh. Thank you!",resolved
+71,4,2026-08-28 16:58,Customers cannot complete checkout,"Good morning, Since this morning customers get an error on the payment step and cannot complete checkout. We are losing orders right now. Checkout is broken. Appreciate any help.",open
+72,4,2026-08-28 19:12,Wish I could schedule products,"Hello, It would save me hours if I could schedule products to go live at a set time. Right now I do it by hand at midnight. Appreciate any help.",resolved
+73,7,2026-08-29 03:06,Carrier rates look wrong,The calculated carrier rates are much higher than what the carrier charges me for the same parcel.,resolved
+74,8,2026-08-29 09:12,Account suspended,My account was suspended this morning with no explanation and my store is offline. I need access restored immediately. Thanks.,resolved
+75,12,2026-08-29 10:59,Question,"Hi, Hello, is anyone there? I have a question. Thank you!",resolved
+76,7,2026-08-29 13:48,Money still has not shown up,"Hi, the money from last week's sales still has not shown up in my account and my supplier is chasing me. It has been over a week. Thank you!",resolved
+77,3,2026-08-29 18:50,Wish I could schedule products,"Good morning, It would save me hours if I could schedule products to go live at a set time. Right now I do it by hand at midnight. Appreciate any help.",resolved
+78,12,2026-08-29 21:14,Theme recommendation,"Hey support, Can you recommend a good theme for a small jewelry store? Looking for something clean.",resolved
+79,7,2026-08-29 21:24,Shipping labels will not print,"Hello, Shipping labels will not print since this morning and I have 25 orders that must ship today. Customers are waiting.",resolved
+80,12,2026-08-30 16:07,Packing slip template,Is it possible to customize the packing slip with our logo? Thank you!,open
+81,1,2026-08-30 20:36,Why is my balance lower?,"Good morning, The balance I see on my dashboard is a lot lower than I expected after this week. Where did the rest go? Thanks.",resolved
+82,1,2026-08-30 21:28,App not syncing inventory,"Hello, The ReviewBoost app stopped syncing inventory with my store 7 days ago and stock levels are now wrong. Regards,",resolved
+83,4,2026-08-31 09:28,Store broken after installing app,After installing the StockSync Pro app my storefront is completely broken and shows a blank page. I uninstalled it but the theme is still damaged. Please help urgently. Thanks.,resolved
+84,1,2026-08-31 16:33,Shipping rates missing at checkout,"Hello, Customers in Canada see no shipping rates at checkout, so they cannot place orders. US customers are fine. Please advise.",resolved
+85,5,2026-09-01 03:35,Thanks!,"Thank you for fixing my issue yesterday, everything works now. Appreciate any help.",open
+86,5,2026-09-01 07:28,Payment provider fees,"Hi, Where can I see a breakdown of transaction fees on my payments? I want to understand the processing rate.",resolved
+87,5,2026-09-02 08:10,Thanks!,"Hi team, Thank you for fixing my issue yesterday, everything works now.",resolved
+88,1,2026-09-02 08:25,Package marked delivered but not received,"Hi, Order #3205 shows delivered in tracking but the customer says the parcel never arrived. What is the process for a lost shipment claim? Regards,",resolved
+89,9,2026-09-03 06:19,Feature request: wishlist,"Hi team, Please consider adding a built-in wishlist feature for storefronts. Our customers keep asking for it.",resolved
+90,5,2026-09-03 12:35,Discount code not applying,"Good morning, The discount code SPRING20 is not applying at checkout even though it is active and the customer meets the minimum. Regards,",resolved
+91,11,2026-09-03 18:27,Theme recommendation,Can you recommend a good theme for a small jewelry store? Looking for something clean. Appreciate any help.,open
+92,4,2026-09-04 13:48,Staff cannot print shipping labels,"Hey support, My staff member can log in but cannot print shipping labels. It says they do not have permission.",resolved
+93,10,2026-09-05 04:36,Feature request: bulk edit,"Hello, It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one. Regards,",resolved
+94,1,2026-09-05 20:57,Discount code changed shipping price,"Good morning, When a customer uses a free shipping discount code the shipping line still charges them for the label rate in the confirmation email.",resolved
+95,5,2026-09-06 11:02,Cannot add staff member,"Hi team, I try to invite a new staff member but the invite email never arrives. Where can I check the staff permissions? Thank you!",resolved
+96,11,2026-09-07 03:14,Cannot add staff member,I try to invite a new staff member but the invite email never arrives. Where can I check the staff permissions? Please advise.,resolved
+97,11,2026-09-07 05:48,Checkout field order,"Good morning, Can the phone number field at checkout be moved below the email field? Minor layout question.",open
+98,7,2026-09-07 10:24,Theme recommendation,"Hi, Can you recommend a good theme for a small jewelry store? Looking for something clean.",open
+99,8,2026-09-07 22:45,Theme changes not saving,"Hi team, When I edit my theme in the customizer and click save, the changes disappear after I refresh. Please advise.",resolved
+100,9,2026-09-08 10:34,Password reset question,"Hello, I want to update my password to something stronger. Where do I do that in account settings? Regards,",resolved
+101,4,2026-09-08 13:07,Chargeback fee question,"I received a chargeback on order #1258 and was charged a fee. How do I dispute this, and can the fee be refunded? Regards,",resolved
+102,4,2026-09-08 14:28,Payment provider fees,Where can I see a breakdown of transaction fees on my payments? I want to understand the processing rate.,resolved
+103,12,2026-09-09 06:17,Theme needs app for checkout page,Our theme seems to need an app to customize the checkout page. Is there a way to do this without paying for an app? Thanks.,resolved
+104,11,2026-09-10 05:12,Theme changes not saving,"Hi team, When I edit my theme in the customizer and click save, the changes disappear after I refresh. Please advise.",open
+105,5,2026-09-10 08:54,Locked out of admin,"Hi team, I am locked out of my store admin. The two-factor code never arrives by SMS and I cannot log in to fulfil orders. Appreciate any help.",resolved
+106,5,2026-09-10 10:59,Add new shipping zone,"Hi team, Can I add a new shipping zone for Mexico? Where do I set shipping rates by country?",resolved
+107,5,2026-09-10 15:59,Customer says order never came,A customer is upset because their order never came and the post office has no record of it. What should I do?,resolved
+108,3,2026-09-10 20:21,Checkout button typo,"Hi team, There is a small typo on the checkout button text, it says 'Complate order'. Not urgent. Regards,",resolved
+109,12,2026-09-11 04:41,Theme slow after update,"Hello, My storefront got noticeably slower after the latest theme update. Page load time doubled.",resolved
+110,3,2026-09-12 08:35,Checkout field order,"Hello, Can the phone number field at checkout be moved below the email field? Minor layout question. Thanks.",resolved
+111,5,2026-09-12 11:26,Money still has not shown up,"Hi, the money from last week's sales still has not shown up in my account and my supplier is chasing me. It has been over a week. Appreciate any help.",resolved
+112,2,2026-09-13 07:15,App recommendation,"Hi team, Is there an app for product reviews that works with my theme? Any suggestions? Thank you!",open
+113,4,2026-09-14 09:44,Add new shipping zone,"Hi, Can I add a new shipping zone for Mexico? Where do I set shipping rates by country? Appreciate any help.",resolved
+114,11,2026-09-14 21:38,It is happening again,"Good morning, It is not working again. Same problem as before. Please advise.",resolved
+115,11,2026-09-15 00:12,Checkout button typo,"Hey support, There is a small typo on the checkout button text, it says 'Complate order'. Not urgent. Regards,",resolved
+116,7,2026-09-15 10:22,Tracking not updating,"Hi, The tracking number for order #1151 has not updated in 6 days. The customer is asking where the package is. Appreciate any help.",resolved
+117,1,2026-09-16 01:06,Payout short after app charged twice,"Good morning, My payout is short and I think it is because the ReviewBoost app billed me twice this month. Please check the payout and the app charges. Appreciate any help.",open
+118,10,2026-09-16 06:42,Cannot get into my shop,"Hey support, I cannot get into my shop anymore. It keeps saying my details are wrong and the reset email never comes. Orders are piling up. Regards,",resolved
+119,6,2026-09-16 12:17,Password reset question,"Hi team, I want to update my password to something stronger. Where do I do that in account settings? Thank you!",resolved
+120,10,2026-09-16 14:16,Payout failed to reach bank,The payout of $420 was marked as failed and never arrived in my bank account. I updated my bank details last week. Please advise urgently. Please advise.,resolved
+121,11,2026-09-16 16:48,Feature request: dark mode,"Hey support, Feature request: please add a dark mode for the admin. Appreciate any help.",resolved
+122,8,2026-09-17 10:11,Customer says order never came,"Hi, A customer is upset because their order never came and the post office has no record of it. What should I do? Please advise.",open
+123,3,2026-09-17 11:29,Coupon will not work,"Hey support, My customers keep telling me the coupon I emailed out does not work when they try to pay. The same code worked last month. Thanks.",open
+124,6,2026-09-17 14:22,People leave at the last step,"Hi, Customers tell me they get to the last step of buying and the page just spins forever. Orders have dropped to almost nothing today. Regards,",open
+125,11,2026-09-18 05:55,Checkout field order,"Hi team, Can the phone number field at checkout be moved below the email field? Minor layout question. Appreciate any help.",resolved
+126,8,2026-09-18 07:06,Marketing offer,We offer cheap marketing services for your online store. Reply for a quote. Thank you!,resolved
+127,4,2026-09-19 11:07,Employee needs access,"Hello, My new employee needs to see orders but not the money side of things. How can I set that up? Regards,",open
+128,5,2026-09-20 02:03,Payout schedule question,"Hello, How often do payouts happen, and can I change the payout schedule to weekly? Thanks.",open
+129,1,2026-09-20 10:15,Feature request: subscriptions,"Hello, We would love native subscription billing with flexible schedules. Is this planned? We currently use a workaround.",resolved
+130,7,2026-09-20 10:20,Payout amount does not match sales,"Hi, My payout this week is $2310 lower than what the sales report shows. Can you explain the difference? Thank you!",resolved
+131,3,2026-09-20 23:24,Feature request: wishlist,"Hi team, Please consider adding a built-in wishlist feature for storefronts. Our customers keep asking for it.",open
+132,10,2026-09-21 04:49,Refund shows up in my payout,"Hello, A refund I issued on order #2242 shows up as a negative amount in my payout. Is that normal?",open
+133,7,2026-09-21 09:26,Checkout shows wrong tax,"Good morning, Tax is calculated incorrectly at checkout for orders shipping to Washington. It adds double tax on some items. Regards,",open
+134,11,2026-09-21 17:09,Customer cannot log in at checkout,A customer says they cannot log in to their customer account at checkout and it loops back to the cart. Guest checkout is not available. Appreciate any help.,resolved
+135,10,2026-09-22 03:27,Payout on hold,"Hi, My payout has been on hold for 3 days and Shopify Payments will not tell me why. I have supplier invoices due this week and need this money urgently.",open
+136,7,2026-09-22 09:23,Chargeback fee question,"Hi, I received a chargeback on order #2210 and was charged a fee. How do I dispute this, and can the fee be refunded?",resolved
+137,8,2026-09-23 03:44,Cannot get into my shop,"I cannot get into my shop anymore. It keeps saying my details are wrong and the reset email never comes. Orders are piling up. Regards,",open
+138,2,2026-09-23 09:00,Locked out of admin,I am locked out of my store admin. The two-factor code never arrives by SMS and I cannot log in to fulfil orders. Please advise.,open
+139,9,2026-09-23 11:50,Payout short after app charged twice,My payout is short and I think it is because the PopupWizard app billed me twice this month. Please check the payout and the app charges. Appreciate any help.,resolved
+140,9,2026-09-24 01:16,Wish I could schedule products,"Hi, It would save me hours if I could schedule products to go live at a set time. Right now I do it by hand at midnight. Regards,",open
+141,6,2026-09-24 18:06,Payout short after app charged twice,"Hi team, My payout is short and I think it is because the PopupWizard app billed me twice this month. Please check the payout and the app charges. Regards,",open
+142,10,2026-09-25 04:47,Tracking not updating,"Hi team, The tracking number for order #3627 has not updated in 5 days. The customer is asking where the package is. Thank you!",open
+143,9,2026-09-25 10:34,Theme needs app for checkout page,"Hey support, Our theme seems to need an app to customize the checkout page. Is there a way to do this without paying for an app? Thanks.",open
+144,8,2026-09-25 11:15,Shipping labels will not print,"Hi, Shipping labels will not print since this morning and I have 30 orders that must ship today. Customers are waiting.",open
+145,10,2026-09-25 13:16,Transfer store ownership,I need to transfer ownership of my store to my business partner. What are the steps for a store ownership transfer? Thank you!,open
+146,2,2026-09-25 19:27,Payout on hold,"Good morning, My payout has been on hold for 7 days and Shopify Payments will not tell me why. I have supplier invoices due this week and need this money urgently.",resolved
+147,11,2026-09-25 22:50,Thinking about closing,"Hi team, I think I might want to close my store. What happens to my data? Not sure yet. Please advise.",open
+148,8,2026-09-26 08:14,Printing postage is not working,"Hi team, I try to print postage for today's orders and nothing happens. 20 orders need to go out by 4pm. Thanks.",open
+149,2,2026-09-26 08:58,Package marked delivered but not received,Order #1208 shows delivered in tracking but the customer says the parcel never arrived. What is the process for a lost shipment claim?,resolved
+150,7,2026-09-26 10:45,Carrier rates look wrong,"The calculated carrier rates are much higher than what the carrier charges me for the same parcel. Regards,",open
+151,5,2026-09-27 05:27,Feature request: bulk edit,It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one. Appreciate any help.,open
+152,7,2026-09-27 15:44,Cannot add staff member,I try to invite a new staff member but the invite email never arrives. Where can I check the staff permissions? Please advise.,resolved
+153,11,2026-09-27 22:40,Checkout shows wrong tax,Tax is calculated incorrectly at checkout for orders shipping to Texas. It adds double tax on some items. Thank you!,resolved
+154,10,2026-09-28 09:08,Feature request: bulk shipping labels,Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks.,open
+155,5,2026-09-28 12:56,Feature request: dark mode,"Good morning, Feature request: please add a dark mode for the admin. Thanks.",open
+156,8,2026-09-28 17:48,Feature request: subscriptions,We would love native subscription billing with flexible schedules. Is this planned? We currently use a workaround.,open
+157,3,2026-09-29 02:07,It is happening again,"Hi, It is not working again. Same problem as before.",open
+158,9,2026-09-29 15:14,Payout failed to reach bank,"Hey support, The payout of $3400 was marked as failed and never arrived in my bank account. I updated my bank details last week. Please advise urgently. Thank you!",resolved
+159,6,2026-09-30 11:48,Help,"Hi, Hi, something is wrong with my store, please help. Thank you!",resolved
+160,11,2026-09-30 13:42,Payout schedule question,"Good morning, How often do payouts happen, and can I change the payout schedule to weekly?",open

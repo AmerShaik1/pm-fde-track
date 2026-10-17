@@ -1,0 +1,108 @@
+{
+  "n": 112,
+  "category_accuracy": 74.1,
+  "priority_accuracy": 72.3,
+  "high_priority_recall": 77.3,
+  "high_priority_precision": 70.8,
+  "true_high_count": 22,
+  "coverage": 67.0,
+  "auto_routed_accuracy": 90.7,
+  "by_difficulty": {
+    "easy": {
+      "n": 60,
+      "category_accuracy": 95.0,
+      "priority_accuracy": 75.0
+    },
+    "paraphrase": {
+      "n": 22,
+      "category_accuracy": 13.6,
+      "priority_accuracy": 72.7
+    },
+    "multi": {
+      "n": 15,
+      "category_accuracy": 53.3,
+      "priority_accuracy": 80.0
+    },
+    "vague": {
+      "n": 15,
+      "category_accuracy": 100.0,
+      "priority_accuracy": 53.3
+    }
+  },
+  "per_category": {
+    "account_access": {
+      "actual": 15,
+      "predicted": 10,
+      "precision": 100.0,
+      "recall": 66.7
+    },
+    "apps_themes": {
+      "actual": 19,
+      "predicted": 13,
+      "precision": 100.0,
+      "recall": 68.4
+    },
+    "checkout_bug": {
+      "actual": 16,
+      "predicted": 13,
+      "precision": 100.0,
+      "recall": 81.2
+    },
+    "feature_request": {
+      "actual": 14,
+      "predicted": 11,
+      "precision": 100.0,
+      "recall": 78.6
+    },
+    "other": {
+      "actual": 15,
+      "predicted": 37,
+      "precision": 40.5,
+      "recall": 100.0
+    },
+    "payments_payouts": {
+      "actual": 19,
+      "predicted": 14,
+      "precision": 100.0,
+      "recall": 73.7
+    },
+    "shipping": {
+      "actual": 14,
+      "predicted": 14,
+      "precision": 50.0,
+      "recall": 50.0
+    }
+  },
+  "top_confusions": [
+    [
+      "shipping",
+      "other",
+      7
+    ],
+    [
+      "payments_payouts",
+      "other",
+      5
+    ],
+    [
+      "apps_themes",
+      "other",
+      4
+    ],
+    [
+      "account_access",
+      "other",
+      3
+    ],
+    [
+      "feature_request",
+      "shipping",
+      3
+    ],
+    [
+      "checkout_bug",
+      "other",
+      3
+    ]
+  ]
+}

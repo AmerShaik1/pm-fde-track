@@ -1,0 +1,9 @@
+# Secrets and local files
+.env
+
+# Generated database (rebuild with: python src/setup_db.py)
+*.db
+
+# Python
+__pycache__/
+*.pyc

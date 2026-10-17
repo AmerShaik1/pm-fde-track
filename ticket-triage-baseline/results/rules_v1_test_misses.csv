@@ -1,0 +1,53 @@
+id,difficulty,true_category,predicted_category,true_priority,predicted_priority,needs_review,subject,body
+6,easy,shipping,other,low,low,1,Packing slip template,"Hi, Is it possible to customize the packing slip with our logo?"
+7,paraphrase,account_access,other,high,high,1,Cannot get into my shop,I cannot get into my shop anymore. It keeps saying my details are wrong and the reset email never comes. Orders are piling up.
+9,multi,account_access,shipping,medium,high,0,Staff cannot print shipping labels,"Hello, My staff member can log in but cannot print shipping labels. It says they do not have permission."
+10,easy,checkout_bug,checkout_bug,medium,high,0,Shipping rates missing at checkout,"Hello, Customers in Canada see no shipping rates at checkout, so they cannot place orders. US customers are fine. Appreciate any help."
+11,easy,payments_payouts,payments_payouts,medium,low,0,Chargeback fee question,"Hi, I received a chargeback on order #2518 and was charged a fee. How do I dispute this, and can the fee be refunded?"
+13,multi,feature_request,shipping,low,low,0,Feature request: bulk shipping labels,"Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks. Regards,"
+14,paraphrase,shipping,other,high,medium,1,Printing postage is not working,"Good morning, I try to print postage for today's orders and nothing happens. 25 orders need to go out by 4pm. Please advise."
+15,easy,apps_themes,apps_themes,low,medium,0,App recommendation,"Hi, Is there an app for product reviews that works with my theme? Any suggestions?"
+18,easy,feature_request,feature_request,medium,low,0,Feature request: bulk edit,"Hi team, It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one."
+23,paraphrase,apps_themes,other,medium,medium,1,Site looks weird after add-on,"Hello, Ever since I added that new add-on from the store, my homepage looks all messed up and slow. Appreciate any help."
+25,paraphrase,payments_payouts,other,medium,medium,1,Customer disputed a charge,"Hello, A customer called their credit card company and disputed one of my orders. Now there is a hold on the funds. What do I do? Appreciate any help."
+29,multi,checkout_bug,checkout_bug,medium,high,0,Customer cannot log in at checkout,A customer says they cannot log in to their customer account at checkout and it loops back to the cart. Guest checkout is not available. Please advise.
+33,paraphrase,payments_payouts,other,high,medium,1,Money still has not shown up,"Hi, Hi, the money from last week's sales still has not shown up in my account and my supplier is chasing me. It has been over a week."
+35,paraphrase,apps_themes,other,medium,medium,1,Design is not updating,I changed the colors and fonts on my design three times but visitors still see the old look. Appreciate any help.
+36,vague,other,other,low,medium,1,Marketing offer,"Hi, We offer cheap marketing services for your online store. Reply for a quote."
+37,paraphrase,checkout_bug,other,medium,medium,1,Coupon will not work,"Good morning, My customers keep telling me the coupon I emailed out does not work when they try to pay. The same code worked last month. Appreciate any help."
+38,paraphrase,account_access,other,medium,low,1,Employee needs access,"Hello, My new employee needs to see orders but not the money side of things. How can I set that up? Thank you!"
+42,vague,other,other,low,medium,1,Question,"Hi, Hello, is anyone there? I have a question. Regards,"
+44,paraphrase,apps_themes,other,medium,medium,1,Site looks weird after add-on,"Hello, Ever since I added that new add-on from the store, my homepage looks all messed up and slow."
+47,paraphrase,apps_themes,other,medium,medium,1,Design is not updating,"Hey support, I changed the colors and fonts on my design three times but visitors still see the old look. Appreciate any help."
+49,paraphrase,payments_payouts,other,medium,medium,1,Why is my balance lower?,"Hi team, The balance I see on my dashboard is a lot lower than I expected after this week. Where did the rest go? Thank you!"
+54,vague,other,other,low,medium,1,Question,"Hello, Hello, is anyone there? I have a question. Thank you!"
+55,easy,shipping,other,low,low,1,Packing slip template,Is it possible to customize the packing slip with our logo? Appreciate any help.
+56,easy,account_access,account_access,low,medium,0,Password reset question,"Hey support, I want to update my password to something stronger. Where do I do that in account settings? Thanks."
+57,paraphrase,shipping,other,high,medium,1,Printing postage is not working,"Good morning, I try to print postage for today's orders and nothing happens. 20 orders need to go out by 4pm. Appreciate any help."
+58,multi,apps_themes,shipping,medium,medium,0,Tracking app shows no tracking numbers,"Good morning, The StockSync Pro app does not show tracking numbers for my orders anymore, even for old orders."
+61,multi,feature_request,shipping,low,low,0,Feature request: bulk shipping labels,Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks. Appreciate any help.
+62,multi,apps_themes,shipping,medium,medium,0,Tracking app shows no tracking numbers,"The LabelMaster app does not show tracking numbers for my orders anymore, even for old orders. Regards,"
+63,vague,other,other,low,medium,1,Marketing offer,"Hey support, We offer cheap marketing services for your online store. Reply for a quote. Thanks."
+75,vague,other,other,low,medium,1,Question,"Hi, Hello, is anyone there? I have a question. Thank you!"
+76,paraphrase,payments_payouts,other,high,medium,1,Money still has not shown up,"Hi, the money from last week's sales still has not shown up in my account and my supplier is chasing me. It has been over a week. Thank you!"
+80,easy,shipping,other,low,low,1,Packing slip template,Is it possible to customize the packing slip with our logo? Thank you!
+81,paraphrase,payments_payouts,other,medium,medium,1,Why is my balance lower?,"Good morning, The balance I see on my dashboard is a lot lower than I expected after this week. Where did the rest go? Thanks."
+84,easy,checkout_bug,checkout_bug,medium,high,0,Shipping rates missing at checkout,"Hello, Customers in Canada see no shipping rates at checkout, so they cannot place orders. US customers are fine. Please advise."
+85,vague,other,other,low,medium,1,Thanks!,"Thank you for fixing my issue yesterday, everything works now. Appreciate any help."
+87,vague,other,other,low,medium,1,Thanks!,"Hi team, Thank you for fixing my issue yesterday, everything works now."
+92,multi,account_access,shipping,medium,high,0,Staff cannot print shipping labels,"Hey support, My staff member can log in but cannot print shipping labels. It says they do not have permission."
+93,easy,feature_request,feature_request,medium,low,0,Feature request: bulk edit,"Hello, It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one. Regards,"
+95,easy,account_access,account_access,medium,high,0,Cannot add staff member,"Hi team, I try to invite a new staff member but the invite email never arrives. Where can I check the staff permissions? Thank you!"
+96,easy,account_access,account_access,medium,high,0,Cannot add staff member,I try to invite a new staff member but the invite email never arrives. Where can I check the staff permissions? Please advise.
+101,easy,payments_payouts,payments_payouts,medium,low,0,Chargeback fee question,"I received a chargeback on order #1258 and was charged a fee. How do I dispute this, and can the fee be refunded? Regards,"
+107,paraphrase,shipping,other,medium,medium,1,Customer says order never came,A customer is upset because their order never came and the post office has no record of it. What should I do?
+112,easy,apps_themes,apps_themes,low,medium,0,App recommendation,"Hi team, Is there an app for product reviews that works with my theme? Any suggestions? Thank you!"
+119,easy,account_access,account_access,low,medium,0,Password reset question,"Hi team, I want to update my password to something stronger. Where do I do that in account settings? Thank you!"
+122,paraphrase,shipping,other,medium,medium,1,Customer says order never came,"Hi, A customer is upset because their order never came and the post office has no record of it. What should I do? Please advise."
+123,paraphrase,checkout_bug,other,medium,medium,1,Coupon will not work,"Hey support, My customers keep telling me the coupon I emailed out does not work when they try to pay. The same code worked last month. Thanks."
+124,paraphrase,checkout_bug,other,high,medium,1,People leave at the last step,"Hi, Customers tell me they get to the last step of buying and the page just spins forever. Orders have dropped to almost nothing today. Regards,"
+129,easy,feature_request,feature_request,medium,low,0,Feature request: subscriptions,"Hello, We would love native subscription billing with flexible schedules. Is this planned? We currently use a workaround."
+136,easy,payments_payouts,payments_payouts,medium,low,0,Chargeback fee question,"Hi, I received a chargeback on order #2210 and was charged a fee. How do I dispute this, and can the fee be refunded?"
+137,paraphrase,account_access,other,high,high,1,Cannot get into my shop,"I cannot get into my shop anymore. It keeps saying my details are wrong and the reset email never comes. Orders are piling up. Regards,"
+151,easy,feature_request,feature_request,medium,low,0,Feature request: bulk edit,It would be really helpful if I could bulk edit product tags and prices in one screen. Right now I do it one by one. Appreciate any help.
+154,multi,feature_request,shipping,low,low,0,Feature request: bulk shipping labels,Feature request: please add the option to buy shipping labels in bulk. It would be great for busy weeks.
